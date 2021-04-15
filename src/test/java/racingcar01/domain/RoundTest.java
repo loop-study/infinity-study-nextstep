@@ -1,6 +1,5 @@
 package racingcar01.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -23,7 +22,7 @@ public class RoundTest {
     public void 라운드_종료_TRUE() throws Exception {
         Round round = Round.of(1);
 
-        boolean result = round.next().roundIsEnd();
+        boolean result = round.next().isLastRound();
 
         assertThat(result).isTrue();
     }
@@ -32,8 +31,14 @@ public class RoundTest {
     public void 라운드_종료_FALSE() throws Exception {
         Round round = Round.of(2);
 
-        boolean result = round.next().roundIsEnd();
+        boolean result = round.next().isLastRound();
 
         assertThat(result).isFalse();
+    }
+
+    @Test
+    public void 라운드_에러확인() throws Exception {
+        assertThatThrownBy(() -> Round.of(-1))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
