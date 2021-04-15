@@ -9,7 +9,7 @@ public class CarMove implements MoveStrategy {
 
     private CarMove() { }
 
-    public static CarMove init() {
+    public static CarMove instance() {
         return INSTANCE;
     }
 
