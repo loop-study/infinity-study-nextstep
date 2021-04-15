@@ -9,17 +9,17 @@ import static org.assertj.core.api.Assertions.*;
 public class RoundTest {
 
     @ParameterizedTest
-    @CsvSource(value = {"2,1", "3,2", "4,3", "5,4"})
-    public void 라운드_진행(int initRound, int result) throws Exception {
+    @CsvSource(value = {"1","2","3","4"})
+    public void 라운드_진행_확인(int initRound) throws Exception {
         Round round = Round.of(initRound);
 
-        Round nextRound = round.next();
-
-        assertThat(nextRound.round()).isEqualTo(result);
+        boolean result = round.next().isEnd();
+        
+        assertThat(result).isFalse();
     }
 
     @Test
-    public void 라운드_종료_TRUE() throws Exception {
+    public void 라운드_종료_확인() throws Exception {
         Round round = Round.of(1);
 
         boolean result = round.next().isEnd();
@@ -28,16 +28,7 @@ public class RoundTest {
     }
 
     @Test
-    public void 라운드_종료_FALSE() throws Exception {
-        Round round = Round.of(2);
-
-        boolean result = round.next().isEnd();
-
-        assertThat(result).isFalse();
-    }
-
-    @Test
-    public void 라운드_에러확인() throws Exception {
+    public void 라운드_에러_확인() throws Exception {
         assertThatThrownBy(() -> Round.of(-1))
                 .isInstanceOf(IllegalArgumentException.class);
     }
