@@ -86,6 +86,7 @@ pobi, honux가 최종 우승했습니다.</code></pre>
 
 ## 역할과 책임
 - 자동차들(Cars)
+  - List<Car>
 - 진행 횟수(Round)
 - 경주 진행(RacingGame)
   - 랜덤값으로 자동차들 이동 및 정지(Cars 받음)
