@@ -1,16 +1,18 @@
 package racingcar01.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.*;
 
 public class DistanceTest {
 
-    @Test
-    public void 거리_init() throws Exception {
-        Distance distance = Distance.init();
-        assertThat(distance.distance()).isEqualTo(0);
+    @ParameterizedTest
+    @CsvSource(value = {"0,1", "1,2", "2,3"})
+    public void 거리_증가(int before, int after) throws Exception {
+        Distance distance = Distance.of(before).add();
+        assertThat(distance.distance()).isEqualTo(after);
     }
 
     @Test

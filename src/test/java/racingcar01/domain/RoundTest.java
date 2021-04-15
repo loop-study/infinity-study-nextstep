@@ -22,7 +22,7 @@ public class RoundTest {
     public void 라운드_종료_TRUE() throws Exception {
         Round round = Round.of(1);
 
-        boolean result = round.next().isLastRound();
+        boolean result = round.next().isEnd();
 
         assertThat(result).isTrue();
     }
@@ -31,7 +31,7 @@ public class RoundTest {
     public void 라운드_종료_FALSE() throws Exception {
         Round round = Round.of(2);
 
-        boolean result = round.next().isLastRound();
+        boolean result = round.next().isEnd();
 
         assertThat(result).isFalse();
     }
