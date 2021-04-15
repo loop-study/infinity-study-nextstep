@@ -24,10 +24,6 @@ public class Round {
         return ROUND_END == round;
     }
 
-    public int round() {
-        return round;
-    }
-
     private static void validRoundMin(int round) {
         if (ROUND_END > round) {
             throw new IllegalArgumentException(ROUND_MIN_MASSAGE);
