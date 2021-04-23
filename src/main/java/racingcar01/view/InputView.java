@@ -1,5 +1,8 @@
 package racingcar01.view;
 
+import racingcar01.domain.Cars;
+import racingcar01.domain.Round;
+
 import java.util.Scanner;
 
 public class InputView {
@@ -8,13 +11,13 @@ public class InputView {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public String names() {
+    public Cars names() {
         System.out.println(CAR_NAME_MESSAGE);
-        return scanner.nextLine();
+        return Cars.of(scanner.nextLine());
     }
 
-    public int round() {
+    public Round round() {
         System.out.println(ROUND_MESSAGE);
-        return Integer.parseInt(scanner.nextLine());
+        return Round.of(Integer.parseInt(scanner.nextLine()));
     }
 }

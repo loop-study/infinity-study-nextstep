@@ -1,11 +1,15 @@
 package racingcar01.domain;
 
+import racingcar01.strategy.CarMove;
+
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-public class Cars {
+public class Cars{
+
     private static final String COMMA = ",";
 
     private final List<Car> cars;
@@ -31,25 +35,14 @@ public class Cars {
         this.cars.forEach(cars);
     }
 
-    public List<Car> winners() {
-        int maxDistance = maxDistance();
-
-        return cars.stream()
-                .filter(car -> car.distance() == maxDistance)
-                .collect(Collectors.toList());
-    }
-
-    private int maxDistance() {
-        return cars.stream()
-                .mapToInt(Car::distance)
-                .max()
-                .getAsInt();
+    public List<Car> cars() {
+        return cars;
     }
 
     private static List<Car> createCars(List<String> nameList) {
         return nameList.stream()
-                    .map(Car::of)
-                    .collect(Collectors.toList());
+                .map(Car::of)
+                .collect(Collectors.toList());
     }
 
     private static List<String> stringToList(String names) {

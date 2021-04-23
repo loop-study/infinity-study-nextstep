@@ -1,4 +1,4 @@
-package racingcar01.domain;
+package racingcar01.strategy;
 
 import racingcar01.util.Dice;
 

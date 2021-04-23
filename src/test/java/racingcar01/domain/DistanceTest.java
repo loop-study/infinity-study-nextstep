@@ -14,7 +14,7 @@ public class DistanceTest {
     @CsvSource(value = {"0,1", "1,2", "2,3"})
     public void 거리_증가(int before, int after) throws Exception {
         Distance distance = Distance.of(before).add();
-        assertThat(distance.distance()).isEqualTo(after);
+        assertThat(distance.value()).isEqualTo(after);
     }
 
     @Test

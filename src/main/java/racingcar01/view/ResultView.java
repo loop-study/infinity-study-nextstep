@@ -1,7 +1,8 @@
 package racingcar01.view;
 
 import racingcar01.domain.Car;
-import racingcar01.domain.Cars;
+import racingcar01.domain.Record;
+import racingcar01.domain.Records;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,13 +11,16 @@ import java.util.stream.IntStream;
 public class ResultView {
     private static final String START_MESSAGE = "실행 결과";
 
-    public ResultView() {
+    public void racingBoard(Records records) {
         System.out.println(START_MESSAGE);
+        System.out.println();
+        records.forEach(this::printRecord);
+        racingWinners(records);
     }
 
-    public void racingBoard(Cars cars) {
+    private void printRecord(Record record) {
         System.out.println();
-        cars.forEach(this::printCar);
+        record.cars().cars().forEach(this::printCar);
     }
 
     private void printCar(Car car) {
@@ -33,9 +37,9 @@ public class ResultView {
         return builder.toString();
     }
 
-    public void racingWinners(Cars cars) {
+    private void racingWinners(Records records) {
         System.out.println();
-        System.out.println(carsToName(cars.winners()) + "가 최종 우승했습니다.");
+        System.out.println(carsToName(records.winners()) + "가 최종 우승했습니다.");
     }
 
     private String carsToName(List<Car> cars) {

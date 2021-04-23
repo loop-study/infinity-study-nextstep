@@ -20,7 +20,7 @@ public class Distance {
         return of(distance + ADD_DISTANCE);
     }
 
-    public int distance() {
+    public int value() {
         return distance;
     }
 
@@ -28,5 +28,9 @@ public class Distance {
         if (distance < MIN_DISTANCE) {
             throw new IllegalArgumentException(MIN_DISTANCE_MASSAGE);
         }
+    }
+
+    public boolean isMaxDistance(int maxDistance) {
+        return distance >= maxDistance;
     }
 }

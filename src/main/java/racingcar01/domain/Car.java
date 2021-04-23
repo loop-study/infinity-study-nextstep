@@ -1,5 +1,7 @@
 package racingcar01.domain;
 
+import racingcar01.strategy.MoveStrategy;
+
 public class Car {
     private static final int DEFAULT_DISTANCE = 0;
 
@@ -26,11 +28,15 @@ public class Car {
         return this;
     }
 
+    public boolean isMaxDistance(int maxDistance) {
+        return distance.isMaxDistance(maxDistance);
+    }
+
     public String name() {
-        return name.name();
+        return name.value();
     }
 
     public int distance() {
-        return distance.distance();
+        return distance.value();
     }
 }

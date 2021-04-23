@@ -15,7 +15,7 @@ public class NameTest {
     @ValueSource(strings = {"s","st","stu","stud","study"})
     public void 이름_최대_5글자(String input) throws Exception {
         Name name = Name.of(input);
-        assertThat(name.name()).isEqualTo(input);
+        assertThat(name.value()).isEqualTo(input);
     }
 
     @Test
