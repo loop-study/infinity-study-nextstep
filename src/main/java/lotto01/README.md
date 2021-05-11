@@ -86,3 +86,14 @@
    - 보너스볼 번호를 입력한다.
 6. 당첨 통계를 보여준다. 
    - 수익률 통계도 보여준다.
+
+
+# 역할
+- LottoNumber : 1 ~ 45 로또 번호
+- LottoTicket : LottoNumber 6개를 가지는 티켓, 추상화
+   - AutoLottoTicket : 자동 티켓
+   - ManualLottoTicket : 수동 티켓
+   - WinningLottoTicket : 당첨 티켓
+- LottoIssuingMachine : 로또 발급기
+- LottoRank : 로또 순위
+- LottoYield : 로또 수익률
