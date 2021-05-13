@@ -15,4 +15,11 @@ public class LottoNumberTest {
         LottoNumber lottoNumber = LottoNumber.of(number);
         assertThat(lottoNumber.toInt()).isEqualTo(number);
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 46})
+    public void 로또번호_1과_45를_벗어나면_예외처리(int number) throws Exception {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> LottoNumber.of(number));
+    }
 }
