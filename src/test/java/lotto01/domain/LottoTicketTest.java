@@ -13,4 +13,10 @@ public class LottoTicketTest {
         LottoTicket lottoTicket = LottoTicket.of();
         assertThat(lottoTicket).isNotNull();
     }
+
+    @Test
+    public void 로또_번호는_6개다() throws Exception {
+        LottoTicket lottoTicket = LottoTicket.of();
+        assertThat(lottoTicket.lottoNumbers().size()).isEqualTo(6);
+    }
 }
