@@ -19,4 +19,9 @@ public class LottoTicketTest {
         LottoTicket lottoTicket = LottoTicket.of();
         assertThat(lottoTicket.lottoNumbers().size()).isEqualTo(6);
     }
+
+    @Test
+    public void 로또_번호가_6개가_아니면_예외처리() throws Exception {
+
+    }
 }
