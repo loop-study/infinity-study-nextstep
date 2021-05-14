@@ -1,6 +1,7 @@
 package lotto01.domain;
 
 import java.util.Arrays;
+import java.util.List;
 
 public enum LottoRank {
     FIRST(6, 2_000_000_000),
@@ -29,5 +30,11 @@ public enum LottoRank {
         }
 
         return rank;
+    }
+
+    public int winnerCount(List<LottoTicket> lottoTickets, WinnerNumbers lottoWinners) {
+        return (int)lottoTickets.stream()
+                .filter(ticket -> valueOf(lottoWinners, ticket) == this)
+                .count();
     }
 }

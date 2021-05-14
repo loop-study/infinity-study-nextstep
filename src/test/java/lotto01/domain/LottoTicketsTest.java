@@ -30,14 +30,14 @@ public class LottoTicketsTest {
     @ParameterizedTest
     @CsvSource(value = {"5000,5","1000,1"})
     public void 로또_자동_발행(int buyAmount, int ticketCount) throws Exception {
-        LottoTickets lottoTickets = new LottoTickets(buyAmount);
+        LottoTickets lottoTickets = LottoTickets.of(buyAmount);
         assertThat(lottoTickets.lottoTickets().size()).isEqualTo(ticketCount);
     }
 
     @ParameterizedTest
     @CsvSource(value = {"5","1"})
     public void 로또_수동_발행(int ticketCount) throws Exception {
-        LottoTickets lottoTickets = new LottoTickets(createManualLottos(ticketCount));
+        LottoTickets lottoTickets = LottoTickets.of(createManualLottos(ticketCount));
         assertThat(lottoTickets.lottoTickets().size()).isEqualTo(ticketCount);
     }
 }

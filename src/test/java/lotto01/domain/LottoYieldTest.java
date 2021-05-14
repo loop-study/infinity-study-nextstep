@@ -1,6 +1,5 @@
 package lotto01.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,15 +19,15 @@ public class LottoYieldTest {
 
     @Test
     public void 로또_수익률_이익() throws Exception {
-        LottoTickets lottoTickets = new LottoTickets(Arrays.asList(LottoTicket.of(Arrays.asList(1,2,3,4,5,6))));
-        boolean result = LottoYield.operationYield(winnerNumbers, lottoTickets) >= 1;
+        LottoTickets lottoTickets = LottoTickets.of(Arrays.asList(Arrays.asList(1,2,3,4,5,6)));
+        boolean result = LottoYield.operationYield(winnerNumbers, lottoTickets.lottoTickets()) >= 1;
         assertThat(result).isTrue();
     }
 
     @Test
     public void 로또_수익률_적자() throws Exception {
-        LottoTickets lottoTickets = new LottoTickets(Arrays.asList(LottoTicket.of(Arrays.asList(11,21,31,14,15,16))));
-        boolean result = LottoYield.operationYield(winnerNumbers, lottoTickets) >= 1;
+        LottoTickets lottoTickets = LottoTickets.of(Arrays.asList(Arrays.asList(11,21,31,14,15,16)));
+        boolean result = LottoYield.operationYield(winnerNumbers, lottoTickets.lottoTickets()) >= 1;
         assertThat(result).isFalse();
     }
 }
