@@ -20,6 +20,6 @@ public class WinnerNumbersTest {
     @Test
     public void 당첨번호_보너스볼_중복_예외처리() throws Exception {
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new WinnerNumbers(LottoTicket.of(Arrays.asList(1,2,3,4,5,6)), LottoNumber.of(7)));
+                .isThrownBy(() -> new WinnerNumbers(LottoTicket.of(Arrays.asList(1,2,3,4,5,6)), LottoNumber.of(6)));
     }
 }
