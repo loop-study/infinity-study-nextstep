@@ -19,9 +19,15 @@ public enum LottoRank {
     }
 
     public static LottoRank valueOf(WinnerNumbers winnerNumbers, LottoTicket lottoTicket) {
-        return Arrays.stream(LottoRank.values())
+        LottoRank rank = Arrays.stream(LottoRank.values())
                 .filter(lottoRank -> winnerNumbers.isMatchCount(lottoRank.matchCount, lottoTicket))
                 .findAny()
                 .orElse(LottoRank.MISS);
+
+        if (rank == LottoRank.SECOND && !winnerNumbers.isMatchBonus(lottoTicket)) {
+            return LottoRank.THIRD;
+        }
+
+        return rank;
     }
 }

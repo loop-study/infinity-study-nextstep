@@ -21,6 +21,10 @@ public class WinnerNumbers {
         return count == matchCount;
     }
 
+    public boolean isMatchBonus(LottoTicket lottoTicket) {
+        return lottoTicket.lottoNumbers().contains(bonusBall);
+    }
+
     private void validateDuplicate(LottoTicket winnerTicket, LottoNumber bonusBall) {
         if (winnerTicket.lottoNumbers().contains(bonusBall)) {
             throw new IllegalArgumentException(DUPLICATE_MASSAGE);
