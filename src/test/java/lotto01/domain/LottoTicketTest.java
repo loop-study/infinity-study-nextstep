@@ -39,4 +39,11 @@ public class LottoTicketTest {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> LottoTicket.of(stringToList(inputNumbers)));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1,1,2,3,4,5", "1,2,3,5,6,6"})
+    public void 로또_번호가_중복되면_예외처리(String inputNumbers) throws Exception {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> LottoTicket.of(stringToList(inputNumbers)));
+    }
 }
