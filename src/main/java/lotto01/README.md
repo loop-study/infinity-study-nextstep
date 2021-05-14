@@ -90,10 +90,27 @@
 
 # 역할
 - LottoNumber : 1 ~ 45 로또 번호
-- LottoTicket : LottoNumber 6개를 가지는 티켓, 추상화
-   - AutoLottoTicket : 자동 티켓
-   - ManualLottoTicket : 수동 티켓
-   - WinningLottoTicket : 당첨 티켓
+- LottoTicket : LottoNumber 6개를 가지는 티켓
+- WinningNumbers : 당첨 티켓
 - LottoIssuingMachine : 로또 발급기
 - LottoRank : 로또 순위
 - LottoYield : 로또 수익률
+
+# 구현 기능
+- [x] LottoNumber : 1 ~ 45 로또 번호
+    - [x] 1~45 까지의 번호를 갖는다.
+    - [x] 1보다 작거나 45보다 크면 에러 발
+- [x] LottoTicket : LottoNumber 6개를 가지는 티켓생성 
+    - [x] 로또 번호 6개를 가진다
+    - [x] 번호 개수 6개 아니면 에러
+    - [x] 중복 번호 존재 시 에러
+- [] WinnerNumbers : 당첨 번호
+    - [x] 당첨번호, 보너스 번호를 갖는다.  
+- [] LottoRank : 로또 순위
+    - [] 1~6등까지 매칭이 가능하다.
+    - [] 2등은 보너스볼 추가 매칭으로 정한다. 
+    - []
+- [] LottoYield : 로또 수익률 
+- [] LottoIssuingMachine : 로또 발급기계
+    - [x] 자동 발급이 된다.
+    - [x] 입력된 6개 번호로 수동 발급이 된다
