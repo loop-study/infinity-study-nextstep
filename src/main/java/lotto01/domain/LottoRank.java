@@ -10,8 +10,8 @@ public enum LottoRank {
     FIFTH(3, 5_000),
     MISS(0, 0);
 
-    private int matchCount;
-    private int money;
+    public final int matchCount;
+    public final int money;
 
     LottoRank(int matchCount, int money) {
         this.matchCount = matchCount;

@@ -27,8 +27,8 @@ public class LottoYieldTest {
 
     @Test
     public void 로또_수익률_적자() throws Exception {
-        LottoTickets lottoTickets = new LottoTickets(Arrays.asList(LottoTicket.of(Arrays.asList(11,21,31,14,15,16)));
-        boolean result = LottoYield.operationYield(winnerNumbers, lottoTickets) < 1;
+        LottoTickets lottoTickets = new LottoTickets(Arrays.asList(LottoTicket.of(Arrays.asList(11,21,31,14,15,16))));
+        boolean result = LottoYield.operationYield(winnerNumbers, lottoTickets) >= 1;
         assertThat(result).isFalse();
     }
 }
