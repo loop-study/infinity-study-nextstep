@@ -1,5 +1,7 @@
 package lotto01.domain;
 
+import java.util.Objects;
+
 public class LottoNumber {
     private static final String OUT_RANGE_MASSAGE = "잘못된 로또 번호입니다.";
     private static final int MIN_RANGE = 1;
@@ -25,5 +27,18 @@ public class LottoNumber {
             || number > MAX_RANGE) {
             throw new IllegalArgumentException(OUT_RANGE_MASSAGE);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LottoNumber that = (LottoNumber) o;
+        return number == that.number;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number);
     }
 }
